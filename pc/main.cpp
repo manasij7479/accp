@@ -1,7 +1,7 @@
-#include "serial.hpp"
-#include "datawindow.hpp"
+#include "comm/serial.hpp"
+#include "data/datawindow.hpp"
 #include "display/display.hpp"
-#include "display/datagen.hpp"
+#include "data/datagen.hpp"
 
 #include<cstdio>
 int main()
@@ -13,13 +13,13 @@ int main()
 	
 	mm::BufferData buf(data);
 	
-	mm::Display d(800,600,data);
+	mm::Display display(800,600,data);
 	
 	while(true)
 	{
 		auto x=port.getTrio();
 		std::printf("%5d\t%5d\t%5d\n",x.x(),x.y(),x.z());
 		data.put(x);
-		d.draw();
+		display.update();
 	}
 }

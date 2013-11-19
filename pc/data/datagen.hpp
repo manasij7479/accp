@@ -1,7 +1,7 @@
 #ifndef ACCP_DATAGEN_HPP
 #define ACCP_DATAGEN_HPP
-#include "../datawindow.hpp"
-#include "../trio.hpp"
+#include "datawindow.hpp"
+#include "trio.hpp"
 #include<iostream>
 namespace mm
 {
@@ -15,16 +15,16 @@ namespace mm
 			z=new float[d.size()*2];
 			
 			auto it=d.begin();
-			for(int i=0;i<1000;++i,++it)
+			for(int i=0;i<d.size();++i,++it)
 			{
 				
-				x[2*i]=-1.0f+2.0f/1000*i;
+				x[2*i]=-1.0f+2.0f/d.size()*i;
 				x[2*i+1]=-1.0f+5*2.0f/6+ 1.0f/256* it->x(); 
 				
-				y[2*i]=-1.0f+2.0f/1000*i;
+				y[2*i]=-1.0f+2.0f/d.size()*i;
 				y[2*i+1]=-1.0f+3*2.0f/6+ 1.0f/256* it->y(); 
 				
-				z[2*i]=-1.0f+2.0f/1000*i;
+				z[2*i]=-1.0f+2.0f/d.size()*i;
 				z[2*i+1]=-1.0f+1*2.0f/6+ 1.0f/6*1.0f/128* it->z(); 
 				
 			}

@@ -2,7 +2,10 @@
 #define ACCP_SERIAL_HPP
 
 #include <boost/asio.hpp>
-#include "trio.hpp"
+
+#include "../data/trio.hpp"
+
+//Adapted from example code
 namespace mm
 {
 	class SimpleSerial
