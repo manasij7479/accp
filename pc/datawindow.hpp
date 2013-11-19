@@ -10,17 +10,21 @@ namespace mm
 	class DataWindow
 	{
 	public:
-		DataWindow(int size):m_size(size){};
+		DataWindow(int size):m_size(size)
+		{
+			for(int i=0;i<size;++i)
+			data.push_back(T());	
+		}
 		void put(const T& t)
 		{
-			if(data.size()>=m_size)
-			{
-				data.pop_front();
-				put(t);
-			}
+			data.pop_front();
 			data.push_back(t);
 		}
 		
+		int size()
+		{
+			return m_size;
+		}
 		typename std::deque<T>::iterator begin(){return data.begin();}
 		typename std::deque<T>::iterator end(){return data.end();}
 		

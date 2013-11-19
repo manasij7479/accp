@@ -1,8 +1,9 @@
 CXX:= g++
 CXXFLAGS :=-c -Wall -std=c++11 -g
-LDFLAGS := -lpthread -lGL -lGLEW -lsfml-system -lsfml-window -lsfml-graphics -lpthread -lboost_system
+LDFLAGS := -lpthread -lGL -lGLEW -lsfml-system -lsfml-window -lboost_system
 # Sources are all .cpp files in this dir
-SRCS := $(wildcard *.cpp)
+SRCDIRS := . display
+SRCS := $(foreach srcdir,$(SRCDIRS),$(wildcard $(srcdir)/*.cpp))
 # Object files are everything in $SRCS, with the .cpp replaced by a .o
 OBJS := $(patsubst %.cpp, %.o, $(SRCS))
 TARGET := accp
