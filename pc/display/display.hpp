@@ -38,6 +38,7 @@ namespace mm
 			
 			glUseProgram(prog->getHandle());
 			
+			col_loc = glGetUniformLocation(prog->getHandle(),"col");
 // 			float buf[] = {0.0f,0.0f,1.0f,0.0f,1.0f,1.0f};
 			
 			BufferData buf(data);
@@ -62,21 +63,23 @@ namespace mm
 			
 			BufferData buf(data);
 			
+			
 			glBindBuffer(GL_ARRAY_BUFFER,vbo);
-			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.x,GL_DYNAMIC_DRAW);		
+			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.x,GL_DYNAMIC_DRAW);
+			glUniform4f(col_loc,1.0f,0.0f,0.0f,1.0f);
 			glDrawArrays(GL_LINE_STRIP,0,1000);
 			
 			glBindBuffer(GL_ARRAY_BUFFER,vbo);
 			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.y,GL_DYNAMIC_DRAW);		
+			glUniform4f(col_loc,0.0f,1.0f,0.0f,1.0f);
 			glDrawArrays(GL_LINE_STRIP,0,1000);
 			
 			glBindBuffer(GL_ARRAY_BUFFER,vbo);
 			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.z,GL_DYNAMIC_DRAW);		
+			glUniform4f(col_loc,0.0f,0.0f,1.0f,1.0f);
 			glDrawArrays(GL_LINE_STRIP,0,1000);
 			
-			
-			
-			
+
 			win->display();
 			sf::Event event;
 			while(win->pollEvent(event))
@@ -93,6 +96,8 @@ namespace mm
 		
 		GLuint vao;
 		GLuint vbo;
+		
+		GLint col_loc;
 		
 		mm::Program* prog;
 		
