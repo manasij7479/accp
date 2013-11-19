@@ -61,8 +61,17 @@ namespace mm
 			glClear(GL_COLOR_BUFFER_BIT);
 			
 			BufferData buf(data);
+			
 			glBindBuffer(GL_ARRAY_BUFFER,vbo);
 			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.x,GL_DYNAMIC_DRAW);		
+			glDrawArrays(GL_LINE_STRIP,0,1000);
+			
+			glBindBuffer(GL_ARRAY_BUFFER,vbo);
+			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.y,GL_DYNAMIC_DRAW);		
+			glDrawArrays(GL_LINE_STRIP,0,1000);
+			
+			glBindBuffer(GL_ARRAY_BUFFER,vbo);
+			glBufferData(GL_ARRAY_BUFFER,data.size()*2*sizeof(float),buf.z,GL_DYNAMIC_DRAW);		
 			glDrawArrays(GL_LINE_STRIP,0,1000);
 			
 			
