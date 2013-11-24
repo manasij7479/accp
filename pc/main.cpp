@@ -13,7 +13,7 @@ int main()
 	
 	mm::BufferData buf(data);
 	
-	mm::Display display(800,600,data);
+	mm::Display display(1600,1000,data);
 	
 	while(true)
 	{

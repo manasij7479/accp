@@ -64,6 +64,20 @@ namespace mm
 		glUniform4f(col_loc,0.0f,0.0f,1.0f,1.0f);
 		glDrawArrays(GL_LINE_STRIP,0,data.size());
 		
+		glBindBuffer(GL_ARRAY_BUFFER,vbo);
+		float x[4]={-1.0f,-1.0f+2.0f/3,1.0f,-1.0f+2.0f/3};
+		glBufferData(GL_ARRAY_BUFFER,4*sizeof(float),x,GL_DYNAMIC_DRAW);		
+		glUniform4f(col_loc,0.0f,0.0f,0.0f,1.0f);
+		glDrawArrays(GL_LINE_STRIP,0,2);
+		
+		glBindBuffer(GL_ARRAY_BUFFER,vbo);
+		float y[4]={-1.0f,-1.0f+4.0f/3,1.0f,-1.0f+4.0f/3};
+		glBufferData(GL_ARRAY_BUFFER,4*sizeof(float),y,GL_DYNAMIC_DRAW);		
+		glUniform4f(col_loc,0.0f,0.0f,0.0f,1.0f);
+		glDrawArrays(GL_LINE_STRIP,0,2);
+		
+		
+		
 
 		win->display();
 		sf::Event event;
