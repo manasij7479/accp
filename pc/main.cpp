@@ -18,6 +18,7 @@ int main()
 	while(true)
 	{
 		auto x=port.getTrio();
+		
 		std::printf("%5d\t%5d\t%5d\n",x.x(),x.y(),x.z());
 		data.put(x);
 		display.update();

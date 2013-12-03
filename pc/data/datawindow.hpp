@@ -1,5 +1,5 @@
-#ifndef BIRD_DATA_WINDOW_HPP
-#define BIRD_DATA_WINDOW_HPP
+#ifndef ACCP_DATA_WINDOW_HPP
+#define ACCP_DATA_WINDOW_HPP
 
 #include <queue> 
 
