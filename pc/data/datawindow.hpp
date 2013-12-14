@@ -20,7 +20,10 @@ namespace mm
 			data.pop_front();
 			data.push_back(t);
 		}
-		
+		T back()
+		{
+			return data.back();
+		}
 		int size()
 		{
 			return m_size;

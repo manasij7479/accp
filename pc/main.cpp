@@ -10,7 +10,7 @@ int main()
 
 	mm::SimpleSerial port("/dev/ttyUSB0",9600);
 	
-	mm::DataWindow<mm::Trio> display_data(1000),mouse_data(10);
+	mm::DataWindow<mm::Trio> display_data(1000),mouse_data(2);
 	
 	mm::Display display(1366,768,display_data);
 	

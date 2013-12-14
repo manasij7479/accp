@@ -9,13 +9,18 @@ namespace mm
 	{
 	public:
 		MouseHandler(DataWindow<Trio>& d):data(d){};
-		void update()
+		void update() ///Nothing works here!! Need to study Kalman filters in DSP :'(
 		{
-			m.move(1,1);
+			Trio a=*data.begin(),b=data.back();
+			int x=b.x()-a.x();
+			int y=b.y()-a.y();
+			
+			m.move(x,y);
 		}
 	private:
 		DataWindow<Trio>& data;
 		Mouse m;
+		
 	};
 }
 #endif
