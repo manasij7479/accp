@@ -27,6 +27,9 @@ namespace mm
 		}
 		typename std::deque<T>::iterator begin(){return data.begin();}
 		typename std::deque<T>::iterator end(){return data.end();}
+		typename std::deque<T>::const_iterator cbegin(){return data.cbegin();}
+		typename std::deque<T>::const_iterator cend(){return data.cend();}
+		
 		
 	private:
 		int m_size;

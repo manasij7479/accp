@@ -6,7 +6,7 @@
 
 #include "../data/datawindow.hpp"
 #include "../data/trio.hpp"
-#include "../data/datagen.hpp"
+#include "datagen.hpp"
 #include "program.h"
 
 

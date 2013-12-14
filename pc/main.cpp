@@ -1,26 +1,30 @@
 #include "comm/serial.hpp"
 #include "data/datawindow.hpp"
 #include "display/display.hpp"
-#include "data/datagen.hpp"
+#include "mouse/data.hpp"
 
 #include<cstdio>
+#include<iostream>
 int main()
 {
 
 	mm::SimpleSerial port("/dev/ttyUSB0",9600);
 	
-	mm::DataWindow<mm::Trio> data(1000);
+	mm::DataWindow<mm::Trio> display_data(1000),mouse_data(10);
 	
-	mm::BufferData buf(data);
+	mm::Display display(1366,768,display_data);
 	
-	mm::Display display(1600,1000,data);
+	mm::MouseHandler m(mouse_data);
 	
 	while(true)
 	{
 		auto x=port.getTrio();
-		
 		std::printf("%5d\t%5d\t%5d\n",x.x(),x.y(),x.z());
-		data.put(x);
+		
+		display_data.put(x);
+		mouse_data.put(x);
+		
 		display.update();
+		m.update();
 	}
 }

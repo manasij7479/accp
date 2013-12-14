@@ -1,8 +1,8 @@
 #ifndef ACCP_DATAGEN_HPP
 #define ACCP_DATAGEN_HPP
-#include "datawindow.hpp"
-#include "trio.hpp"
-#include<iostream>
+#include "../data/datawindow.hpp"
+#include "../data/trio.hpp"
+
 namespace mm
 {
 	class BufferData

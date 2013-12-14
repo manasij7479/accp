@@ -10,7 +10,7 @@ void setup()
   Serial.begin(9600);
   // Set the sensitivity you want to use
   // 2 = 2g, 4 = 4g, 8 = 8g
-  mySensor.initSensitivity(2);
+  mySensor.initSensitivity(8);
   // Calibrate the Offset, that values corespond in 
   // flat position to: xVal = -30, yVal = -20, zVal = +20
   // !!!Activate this after having the first values read out!!!
